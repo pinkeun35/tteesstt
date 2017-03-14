@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+h3{ display:none; visibility:hidden;}
+#mainwrap .mainbox .mainvisual{ background:url(/app/views/images/temp/visual2_bg.png) left top repeat-x;}
+
+#mainwrap .mainbox .mainbbswrap{ position:relative; margin:50px  0 0 34px; height:390px;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1{ position:absolute; width:550px; height:300px;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 h2{ margin-bottom:10px; padding:3px 0 0 15px; background:url(/app/views/images/common/icon_mbbs1.gif) left center no-repeat; font-size:1em;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist{ position:relative; height:100px; cursor:pointer;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist:hover{ background:#f6f6f6;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist dt{ position:absolute; left:105px; top:10px; font-size:1.2em; font-weight:bold;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist dd{ position:absolute; left:105px; top:35px; line-height:120%;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist dd .cont2{ color:#999;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox1 .bbslist dd .cont3{ position:absolute; left:-105px; top:-30px;}
+
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2{ position:absolute; width:380px; left:580px; top:0;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2 h2{ margin-bottom:10px; padding:3px 0 0 15px; background:url(/app/views/images/common/icon_mbbs1.gif) left center no-repeat; font-size:1em;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2 .bbslist dd{ margin:2px 0 2px 0; padding:5px 0 4px 12px;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2 .bbslist .cont1{ color:#666; background:#efefef;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2 .bbslist .cont2{ color:#666;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox2 .bbslist span{ color:#ccc;}
+
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3{ position:absolute; width:170px; left:995px; top:3px;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist{ width:170px; height:320px; background:url(/app/views/images/main/bg_mbbs1.gif) left bottom no-repeat;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist dt{ padding-left:15px; height:35px; color:#ccc; background:url(/app/views/images/common/icon_mbbs1.gif) left 3px no-repeat; }
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist dt strong{ color:#666;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist dt a{ color:#999;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist dd{ padding-left:15px; height:27px;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist .more{ position:absolute; left:95px; top:290px; color:#999;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist .more span{ color:#ccc; font-size:0.8em; font-weight:bold;}
+#mainwrap .mainbox .mainbbswrap .mainbbsbox3 .bbslist .more a{ color:#999;}
+#mainwrap .mainbox .mainbbswrap #mainbbsbox3b{ visibility:hidden;}
+
+
+/* header */
+
+/* main footer */

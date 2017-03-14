@@ -1,0 +1,174 @@
+/* dialog popup  */
+
+/* 회원인증 */
+#diapup101 p{ padding-top:20px; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup101 button{ font-family:gulim;}
+#diapup101{ text-align:center;}
+#diapup101 .inp1{ width:30%; padding:4px; text-align:center;}
+
+/* 로그인 */
+#diapup102 p{ position:relative; padding-top:20px; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup102 button{ font-family:gulim;}
+#diapup102{ text-align:center;}
+#diapup102 .inp1{ margin:5px 80px 0 0; padding:4px; width:30%; text-align:center;}
+#diapup102 .btn_login{ display:block; position:absolute; left:277px; top:68px;}
+
+/* 비밀번호변경 */
+#diapup103 p{ position:relative; padding-top:20px; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup103 p strong{ color:#F60;}
+#diapup103 button{ font-family:gulim;}
+#diapup103{ text-align:center;}
+#diapup103 .inp1{ margin:2px; padding:4px; width:300px; text-align:center;}
+
+/* 회원탈퇴 */
+#diapup104 p{ position:relative; padding-top:20px; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup104 p strong{ color:#F60;}
+#diapup104 button{ font-family:gulim;}
+#diapup104{ text-align:center;}
+#diapup104 .inp1{ margin:2px; padding:4px; width:300px; text-align:center;}
+
+/* 가입자검색 */
+#diapup106 p{ position:relative; padding-top:10px; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup106 button{ font-family:gulim;}
+#diapup106{ text-align:center;}
+#diapup106 .inp1{ margin:5px 80px 0 0; padding:4px; width:50%; text-align:center;}
+#diapup106 .btn_login{ display:block; position:absolute; left:335px; top:38px;}
+#diapup106  #employercheck{ margin-top:20px; border-top:solid 1px #ccc;}
+
+/* 담당자 */
+#diapup107 p{ position:relative; padding:10px 0 10px 0; font-family:gulim; font-size:12px; line-height:180%; color:#666;}
+#diapup107 button{ font-family:gulim;}
+#diapup107{ text-align:center;}
+#diapup107 .inp1{ margin:0 0 0 0; padding:4px; width:30%; text-align:center;}
+#diapup107  #employercheck{ margin-top:20px; border-top:solid 1px #ccc;}
+
+/* 프로젝트삭제 */
+#diapup108 p ,#diapup109, p{ position:relative; padding:10px 0 10px 0; font-family:gulim; font-size:12px; line-height:180%; color:#666; text-align:center;}
+
+/* 공구상세정보 */
+#diapup111 .mbtn_diapup111{ border:solid 1px #42a500; background:#52cc00; color:#fff;}
+
+/* 건축물정보등록 */
+#diapup115 p,
+#diapup116 p{ text-align:left; color:#ccc;}
+#diapup115 p strong,
+#diapup116 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup115 p a,
+#diapup116 p a{ color:#666;}
+#diapup116 .file1{ width:90%;}
+
+/* 공정정보등록 */
+#diapup122 p,
+#diapup123 p{ text-align:left; color:#ccc;}
+#diapup122 p strong,
+#diapup123 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup122 p a,
+#diapup122 p a{ color:#666;}
+#diapup123 .file1{ width:90%;}
+#diapup122 .textarea1{ width:90%; height:50px;border:solid 1px #ccc;}
+
+/* 공정정보수정 */
+#diapup124 .textarea1{ width:90%; height:50px; border:solid 1px #ccc;}
+#diapup124 .del,
+#diapup124 .del:link,
+#diapup124 .del:visited,
+#diapup124 .del:hover{ padding-left:10px; color:#C00; font-family:Arial, Helvetica, sans-serif;}
+
+/* pre-use 자재정보입력 */
+#diapup128 p,
+#diapup129 p{ text-align:left; color:#ccc;}
+#diapup128 p strong,
+#diapup129 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup128 .p1,
+#diapup129 .p1{ padding:0; border-bottom:solid 1px #ddd;}
+#diapup128 .tablewritetype4 .st4{ height:20px; line-height:0;}
+#diapup129 .file1{ width:90%;}
+
+/* pre-use 자재정보수정 */
+#diapup130 p{ text-align:left; color:#ccc;}
+#diapup130 .p1{ padding:0; border-bottom:solid 1px #ddd;}
+#diapup130 .tablewritetype4 .st4{ height:20px; line-height:0;}
+
+/* LCI DB검색 */
+#diapup137 .inp1{ width:60%; padding:4px; text-align:center;}
+
+/* Use Energy 사용정보 입력 */
+#diapup141 p,
+#diapup142 p{ text-align:left; color:#ccc;}
+#diapup141 p strong,
+#diapup142 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup141 p a,
+#diapup142 p a{ color:#666;}
+#diapup142 .file1{ width:90%;}
+
+/* 회원관리 > 회원상세정보 */
+#diapup151 .tapmenubox1,
+#diapup152 .tapmenubox1{ margin:20px 0 0px 0;}
+#diapup151 .bbstitle1,
+#diapup152 .bbstitle1{ margin:10px 0 10px 0; padding-left:25px; text-align:left; border-bottom:solid 1px #ddd; font-weight:bold; color:#333; background:url(/app/views/images/common/icon_bbstitle1.gif) left center no-repeat;}
+.tapmenubox1 .adminlisttapmenu1 .menu1{ background:url(/app/views/images/common/bg_tapm3a_01.gif) left top no-repeat !important;}
+.tapmenubox1 .adminlisttapmenu1 .menu2{ background:url(/app/views/images/common/bg_tapm3b_03.gif) left top no-repeat !important;}
+.tapmenubox1 .adminlisttapmenu2 .menu1{ background:url(/app/views/images/common/bg_tapm3b_01.gif) left top no-repeat !important;}
+.tapmenubox1 .adminlisttapmenu2 .menu2{ background:url(/app/views/images/common/bg_tapm3c_03.gif) left top no-repeat !important;}
+
+/* 자재 및 에너지 기초자료 등록 */
+#diapup156 p,
+#diapup157 p,
+#diapup159 p,
+#diapup160 p,
+#diapup162 p,
+#diapup163 p{ text-align:left; color:#ccc;}
+#diapup156 p strong,
+#diapup157 p strong,
+#diapup159 p strong,
+#diapup160 p strong,
+#diapup162 p strong,
+#diapup163 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup156 p a,
+#diapup157 p a,
+#diapup159 p a,
+#diapup160 p a,
+#diapup162 p a,
+#diapup153 p a,{ color:#666;}
+#diapup157 .file1,
+#diapup160 .file1,
+#diapup163 .file1{ width:90%;}
+
+/* 유사용어 */
+#diapup165 p,
+#diapup166 p{ text-align:left; color:#ccc;}
+#diapup165 p strong,
+#diapup166 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup165 p a,
+#diapup166 p a,{ color:#666;}
+#diapup166 .file1{ width:90%;}
+
+/* LCI DB검색 */
+#diapup168 .inp1,
+#diapup172 .inp1{ width:60%; padding:4px; text-align:center;}
+#diapup167 .btn_diapup168,
+#diapup165 .btn_diapup168,
+#diapup169 .btn_diapup172,
+#diapup171 .btn_diapup172{ border:solid 1px #ccc; padding:2px 5px 2px 17px; background:#fff; color:#666; background:url(/app/views/images/common/icon_zoom2.gif) 5px 7px no-repeat;}
+
+/* 단위관리 */
+#diapup169 p,
+#diapup170 p,
+#diapup173 p,
+#diapup174 p{ text-align:left; color:#ccc;}
+#diapup169 p strong,
+#diapup170 p strong,
+#diapup173 p strong,
+#diapup174 p strong{ font-size:14px; font-weight:bold; color:#F60;}
+#diapup169 p a,
+#diapup170 p a,
+#diapup173 p a,
+#diapup174 p a,{ color:#666;}
+#diapup170 .file1,
+#diapup174 .file1{ width:90%;}
+
+/* 질문하기 */
+#diapup178 p{ padding-top:30px;}
+
+
+

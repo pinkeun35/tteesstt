@@ -1,0 +1,132 @@
+select	top 100 percent
+		k.*
+	,	(k.CO2발생량 * k.수량) as pre_use
+	,	(k.CO2발생량 * k.수량 * k.수선률)as use_data
+	,	CASE
+			WHEN 수선주기 > 0.0 THEN ((k.CO2발생량 * k.수량 * k.수선률) * (수명 / 수선주기))
+			ELSE 0
+		END as use_total
+	,	case
+			when k.무게 = 0 and k.trans_weight > 0 then CONVERT(FLOAT, (CONVERT(FLOAT, k.수량) * CONVERT(FLOAT, k.trans_weight) * CONVERT(FLOAT, k.폐기장거리) * CONVERT(FLOAT, k.덤프CO2배출량) / 1000.0))
+			when k.무게 = 0 and k.trans_weight = 0 then CONVERT(FLOAT, (CONVERT(FLOAT, k.수량) * CONVERT(FLOAT, k.폐기장거리) * CONVERT(FLOAT, k.덤프CO2배출량) / 1000.0))
+			else CONVERT(FLOAT, (CONVERT(FLOAT, k.무게) * CONVERT(FLOAT, k.폐기장거리) * CONVERT(FLOAT, k.덤프CO2배출량) / 1000.0))
+		end as post_use
+from (
+	select
+			c.prj_code
+		,	c.bld_code
+		,	c.zone_code
+		,	c.bd_code
+		,	c.pr_code
+		,	c.공구
+		,	c.일차코드
+		,	c.이차코드
+		,	c.삼차코드
+		,	c.일차공정
+		,	c.이차공정
+		,	c.삼차공정
+		,	c.건물명
+		,	c.건축면적
+		,	c.연면적
+		,	c.완공일
+		,	d.bd_name as 품목명
+		,	c.규격
+		,	c.수명
+		,	d.bd_co2 as CO2발생량
+		,	d.bd_unit as 단위
+		,	c.수량
+		,	c.weight as 무게
+		,	c.trans_weight
+		,	d.bd_repair_cycle as 수선주기
+		,	(d.bd_repair_rate / 100) as 수선률
+		,	e.gr_distance as 폐기장거리
+	--	,	ISNULL((Select TOP 1 bd_co2 From TB_BD_MATERIAL Where bd_name = '트럭' Order by bd_source), 0) as 덤프CO2배출량
+		,	0.05989 as 덤프CO2배출량
+	from (
+		select	top 100 percent
+				a.prj_code
+			,	a.bld_code
+			,	a.zone_code
+			,	b.pr_code
+			,	b.bd_code				-- Re-Check Data
+			,	(select zone_name from TB_PROJECT_ZONE where zone_code = a.zone_code) as 공구
+			,	a.bld_name as 건물명
+			,	a.bld_area as 건축면적
+			,	a.total_floor_area as 연면적
+			,	a.bld_complete_date as 완공일
+			,	a.bld_life as 수명
+			,	b.standard as 규격		-- Re-Check Data
+			,	b.qty as 수량
+			,	b.weight
+			,	b.trans_weight
+			,	f.step1_code as 일차코드
+			,	f.step2_code as 이차코드
+			,	f.step3_code as 삼차코드
+			,	f.step1_name as 일차공정
+			,	f.step2_name as 이차공정
+			,	f.step3_name as 삼차공정
+		from TB_BUILDING a, (
+			select	bb.pr_code
+				,	bb.bld_code
+				,	bb.bd_code
+				,	bb.standard
+				,	bb.qty
+				,	bb.weight
+				,	bb.trans_weight
+				,	bb.co2_use_yn
+				,	bb.apply_yn
+			from (
+				select	aa.pr_code
+					,	aa.bld_code
+					,	case
+							when aa.bd_code > 0 then aa.bd_code
+							else
+								ISNULL((select top 1 bd_code from TB_BD_MATERIAL where upper(bd_name) = upper(aa.bd_name) and upper(bd_standard) = upper(aa.standard) order by bd_source asc), 0)
+						end as bd_code
+				--	,	ISNULL((select top 1 bd_code from TB_BD_MATERIAL where upper(bd_name) = upper(aa.bd_name) and upper(bd_standard) = upper(aa.standard) order by bd_source asc), 0) as bd_code
+					,	aa.standard, aa.qty
+					,	aa.weight
+					,	ISNULL((SELECT TOP 1 unit_trans FROM tb_unit WHERE UPPER(unit_input) = aa.unit), 0) as trans_weight
+					,	aa.use_yn as co2_use_yn
+					,	aa.apply_yn
+				from TB_CO2 aa
+			) bb
+			where bb.bd_code > 0
+		) b, (
+		
+			select	(select up_pr_code from TB_PROCESS b where pr_code = pp2.step2_code and pr_depth = 1) as step1_code
+				,	step2_code
+				,	step3_code
+				,	(select pr_name from TB_PROCESS b where pr_code = pp2.step2_code and pr_depth = 1) as step1_name
+				,	step2_name
+				,	step3_name
+				,	pr_code
+			from (
+				select	pp1.up_pr_code as step3_code
+					,	pp1.pr_name as step3_name
+					,	(select up_pr_code from TB_PROCESS b where pr_code = pp1.up_pr_code and pr_depth = 2) as step2_code
+					,	(select pr_name from TB_PROCESS b where pr_code = pp1.up_pr_code and pr_depth = 2) as step2_name
+					,	pr_code
+				from (
+					select up_pr_code
+						,	pr_name
+						,	pr_code
+					from TB_PROCESS
+				--	where pr_code = b.pr_code
+				) pp1
+			) pp2
+		
+		) f
+		where a.bld_code = b.bld_code
+		and b.pr_code = f.pr_code
+		and a.prj_code = 1
+		and a.use_yn = 'Y'
+		and b.co2_use_yn = 'Y'
+		and b.apply_yn = 'Y'
+		Order by a.display_seq, a.bld_name
+	) c, TB_BD_MATERIAL d
+	,	(Select gr_distance From TB_GRAVEYARD where gr_name = '폐기장') e
+	where c.bd_code = d.bd_code
+) k
+where bd_code > 0
+order by bd_code asc;
